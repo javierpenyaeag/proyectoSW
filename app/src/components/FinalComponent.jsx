@@ -9,8 +9,8 @@ export const FinalComponent = ({
 }) => {
   console.log(title);
 
-  let image = `../../assets/film${episode_id}`;
-  // let image = `../../assets/film${episode_id}.jpg`;
+  //let image = `../../assets/film${episode_id}`;
+  let image = require(`../../assets/fotos/film${episode_id}.jpg`);
 
   console.log("voy a enviar==>", characters);
 
@@ -24,7 +24,7 @@ export const FinalComponent = ({
         <div className="row no-gutters">
           <div className="col-4 ">
             <img
-              src={`../../assets/fotos/film${episode_id}.jpg`}
+              src={image}
               alt={title}
               className="card-img"
             />
@@ -39,7 +39,7 @@ export const FinalComponent = ({
               {/* <Link to={``}>
                         Ver Personajes...
                     </Link> */}
-              <Link to={`/verPersonajes/${episode_id}`} target="_blank">
+              <Link to={`/verPersonajes/${episode_id}`} >
                 Protagonistas
               </Link>
 

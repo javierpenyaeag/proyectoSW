@@ -11,6 +11,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//aqui la de registro
+
 Route::controller(PeliculaController::class)->group(function () {
     Route::get('/Peliculas', 'index');
     Route::post('/Pelicula', 'store');
