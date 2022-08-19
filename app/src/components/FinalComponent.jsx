@@ -1,5 +1,12 @@
+import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+// import { addPeliculasFavoritas } from "../hooks/addPeliculasFavoritas";
+
+
+const endPoint = "http://localhost:8000/api/pelicula";
+
+
 
 export const FinalComponent = ({
   title,
@@ -8,8 +15,25 @@ export const FinalComponent = ({
   characters,
 }) => {
   console.log(title);
+  
+  const navigate = useNavigate();
 
-  //let image = `../../assets/film${episode_id}`;
+  const store = async(title, image, event) =>{
+    event.preventDefault();
+    console.log("entra en store de peliculas");
+    let token = localStorage.getItem("token");
+    const config = {
+      headers: {
+          "Content-type": "application/json",
+           "Authorization": `Bearer ${token}`,
+      },
+    }; 
+    await axios.post(endPoint, {nombre: title, foto: image}, config)
+    navigate('/peliculasFavoritas');
+  
+  }
+
+  // let image = `../../assets/film${episode_id}`;
   let image = require(`../../assets/fotos/film${episode_id}.jpg`);
 
   console.log("voy a enviar==>", characters);
@@ -43,12 +67,12 @@ export const FinalComponent = ({
                 Protagonistas
               </Link>
 
-              {/* <button
+              <button
                 className="btn btn-outline-primary"
-                onClick={onNavigateBack}
+                onClick={(event) => store(title, image, event)}
               >
-                Personajes
-              </button> */}
+                Añadir a favorito
+              </button>
             </div>
           </div>
         </div>

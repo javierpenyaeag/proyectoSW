@@ -26,7 +26,7 @@ export const VerPersonajes = () => {
   return (
     <>
       <h1>PROTAGONISTAS DE LA PELICULA <strong>{film.title}</strong>:</h1>
-      <div className="row rows-cols-1 row-cols-md-3 g-3">
+      <div className="row rows-cols-1 row-cols-md-3 g-3 mb-4">
 
       {/* <ul>
         {

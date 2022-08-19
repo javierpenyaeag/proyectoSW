@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('idUsu');
             $table->string('nombre');
             $table->string('foto');
-            $table->integer('seleccionado');
+            $table->integer('seleccionado')->nullable();
             $table->timestamps();
         });
     }

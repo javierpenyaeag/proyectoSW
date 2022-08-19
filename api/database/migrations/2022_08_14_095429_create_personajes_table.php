@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('altura');
             $table->string('genero');
             $table->string('foto');
-            $table->integer('seleccionado');
+            $table->integer('seleccionado')->default(0);
             $table->timestamps();
         });
     }
