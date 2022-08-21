@@ -9,6 +9,7 @@ export const FinalPeliculasFavoritas = ({
   filmsArray,
   setFilmsArray,
   films,
+  callback
 }) => {
   // let navigate = useNavigate();
 
@@ -30,7 +31,7 @@ export const FinalPeliculasFavoritas = ({
 
     await axios.delete(`${endPonint}/${id}`, config);
 
-    navigate('/');
+    callback(id);
     
     // const filmDeletedId = await axios.delete(`${endPonint}/${id}`, config); //extraigo la pelicula que deseo que no aparezca
     // setFilmsArray(films.filter((film) => film.id !== filmDeletedId)); //creo el array de nuevo en este caso sin la pelicula a borrar

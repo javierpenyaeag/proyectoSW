@@ -33,8 +33,8 @@ export const usePersonajesFavoritos = () => {
 
 
   return {
-      characters
-
+      characters,
+      setCharacters
   }
   
 

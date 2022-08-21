@@ -6,7 +6,13 @@ import { FinalPersonajeFavorito } from './FinalPersonajeFavorito';
 
 export const PersonajesFavoritos = () => {
 
-  const {characters} = usePersonajesFavoritos();
+  const {characters, setCharacters} = usePersonajesFavoritos();
+
+  let callback = (id) => {
+    setCharacters(
+      characters.filter(film => film.id !== id)
+    );
+  }
 
   console.log(characters);
 
@@ -15,10 +21,11 @@ export const PersonajesFavoritos = () => {
     <h1>MIS PERSONAJES FAVORITOS DE LA SAGA START WARS:</h1>
     <div className="row rows-cols-1 row-cols-md-3 g-3 mb-4">
 
-      {characters.map((character) => (
+      {characters.map((character, index) => (
         <FinalPersonajeFavorito
-          key={character.nombre} //el key siempre hay que mandarlo
-          {...character} //para mandar el resto de propiedades desestructuro el hero, así me evito el pasarlas de una en una
+          key={`${character.nombre}-${index}`} //el key siempre hay que mandarlo
+          {...character} 
+          callback={callback}  //para mandar el resto de propiedades desestructuro el hero, así me evito el pasarlas de una en una
         />
       ))}
     </div>

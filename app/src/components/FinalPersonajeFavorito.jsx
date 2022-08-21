@@ -9,6 +9,7 @@ export const FinalPersonajeFavorito = ({
   altura,
   genero,
   foto,
+  callback
 }) => {
   console.log(nombre);
 
@@ -32,10 +33,11 @@ export const FinalPersonajeFavorito = ({
     // const CharacterDeletedId = await axios.delete(`${endPonint}/${id}`, config);
 
     await axios.delete(`${endPonint}/${id}`, config);
+    callback(id);
     // setFilmsArray(
     //   filmsArray.filter(film => film.id !== filmDeletedId)
     // );
-    navigate('/');
+    //navigate('/');
   };
 
   return (

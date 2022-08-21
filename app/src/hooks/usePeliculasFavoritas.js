@@ -34,7 +34,8 @@ export const usePeliculasFavoritas = () => {
 
 
   return {
-      films
+      films,
+      setFilms
 
   }
 }
