@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react'
-import { Link, Navigate, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 const endPonint = "http://localhost:8000/api";
 
 export const BarraNavegacion = () => {
@@ -9,6 +9,10 @@ export const BarraNavegacion = () => {
 
   // cerrarSesion.style.cursor = "pointer";
 
+  
+  const navigate = useNavigate();
+
+
   const logout = async () =>{
     let token = localStorage.getItem("token");
     const config = {
@@ -16,11 +20,12 @@ export const BarraNavegacion = () => {
           "Content-type": "application/json",
           "Authorization": `Bearer ${token}`,
       },
+
     }; 
 
     const message = await axios.post(`${endPonint}/logout`, {}, config);
     localStorage.setItem("token", "");
-    Navigate("/");
+    navigate('/login');
   }
 
   return (

@@ -32,7 +32,9 @@ export const FinalComponentPeople = ({direccion}) => {
   
   }
 
-  let image = `../../assets/fotos/${name}.jpg`;
+  let buscar = 'imagen'
+
+  let image = require(`../../assets/fotos/${buscar}.gif`);
 
   
 
@@ -57,7 +59,7 @@ export const FinalComponentPeople = ({direccion}) => {
       <div className="row no-gutters">
         <div className="col-4 ">
           <img
-            src={`../../assets/fotos/${datos.foto}.jpg`}
+            src={`${image}`}
             alt={name}
             className="card-img"
           />

@@ -14,6 +14,10 @@ export const FinalPersonajeFavorito = ({
 
   const navigate = useNavigate();
 
+  let buscar = 'imagen2'
+
+  let image = require(`../../assets/fotos/${buscar}.gif`);
+
   const endPonint = "http://localhost:8000/api/personaje";
 
   const deleter = async () => {
@@ -40,7 +44,7 @@ export const FinalPersonajeFavorito = ({
         <div className="row no-gutters">
           <div className="col-4 ">
             <img
-              src={`../../assets/fotos/${foto}.jpg`}
+              src={image}
               alt={nombre}
               className="card-img"
             />
